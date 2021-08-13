@@ -6,6 +6,14 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var mongoose = require('mongoose');
+
+// connecting to database
+
+mongoose.connect('mongodb://localhost/mongoAggregation', {useNewUrlParser : true , useUnifiedTopology : true}, (err) => {
+  console.log(err ? err : "Connected to database")
+})
+
 
 var app = express();
 
